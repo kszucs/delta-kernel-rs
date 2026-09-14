@@ -1003,7 +1003,7 @@ impl PrimitiveType {
                 } else {
                     Err(self.parse_error(raw))
                 }
-            },
+            }
             Date => {
                 let date = NaiveDate::parse_from_str(raw, "%Y-%m-%d")
                     .map_err(|_| self.parse_error(raw))?
@@ -1012,7 +1012,7 @@ impl PrimitiveType {
                 let date = Utc.from_utc_datetime(&date);
                 let days = date.signed_duration_since(DateTime::UNIX_EPOCH).num_days() as i32;
                 Ok(Scalar::Date(days))
-            },
+            }
             // NOTE: Timestamp and TimestampNtz are both parsed into microseconds since unix
             // epoch. The difference arises mostly in how they are to be handled on the engine
             // side - i.e. timestampNTZ is not adjusted to UTC, this is just so we can

@@ -43,7 +43,6 @@ fn test_create_table_rejects_interval_clustering(
 }
 
 mod supported {
-    use super::delta_kernel;
     use delta_kernel::schema::SchemaRef;
     use delta_kernel::snapshot::Snapshot;
     use delta_kernel::table_features::ColumnMappingMode;
@@ -53,7 +52,7 @@ mod supported {
     use super::super::column_mapping::{
         assert_column_mapping_config, strip_column_mapping_metadata,
     };
-    use super::*;
+    use super::{delta_kernel, *};
 
     /// Top-level schema carrying the given interval `DataType`.
     fn top_level_interval_schema(interval: DataType) -> SchemaRef {

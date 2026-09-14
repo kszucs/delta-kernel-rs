@@ -160,10 +160,7 @@ impl Snapshot {
     /// This **can panic**, to catch an error use try_new()
     #[internal_api]
     #[allow(unused)]
-    pub(crate) fn new(
-        log_segment: LogSegment,
-        table_configuration: TableConfiguration,
-    ) -> Self {
+    pub(crate) fn new(log_segment: LogSegment, table_configuration: TableConfiguration) -> Self {
         Self::try_new(log_segment, table_configuration).expect("Failed to construct a Snapshot")
     }
 

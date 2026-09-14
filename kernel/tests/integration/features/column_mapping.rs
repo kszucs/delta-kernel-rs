@@ -1,9 +1,9 @@
 //! Integration tests for reading column-mapping tables.
 
-use buoyant_kernel as delta_kernel;
 use std::collections::HashMap;
 use std::sync::Arc;
 
+use buoyant_kernel as delta_kernel;
 use delta_kernel::arrow::array::{Int32Array, RecordBatch, StringArray};
 use delta_kernel::arrow::datatypes::{
     DataType as ArrowDataType, Field as ArrowField, Schema as ArrowSchema,

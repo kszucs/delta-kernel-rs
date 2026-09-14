@@ -641,7 +641,9 @@ impl From<&PrimitiveType> for proto_schema::PrimitiveType {
             PrimitiveType::Timestamp => PrimitiveTypeKind::Simple(Simple::Timestamp as i32),
             PrimitiveType::TimestampNtz => PrimitiveTypeKind::Simple(Simple::TimestampNtz as i32),
             #[cfg(feature = "nanosecond-timestamps")]
-            PrimitiveType::TimestampNanos => PrimitiveTypeKind::Simple(Simple::TimestampNanos as i32),
+            PrimitiveType::TimestampNanos => {
+                PrimitiveTypeKind::Simple(Simple::TimestampNanos as i32)
+            }
             #[cfg(feature = "nanosecond-timestamps")]
             PrimitiveType::TimestampNanosNtz => {
                 PrimitiveTypeKind::Simple(Simple::TimestampNanosNtz as i32)

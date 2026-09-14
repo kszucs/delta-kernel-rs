@@ -952,12 +952,11 @@ impl TableConfiguration {
 
 #[cfg(test)]
 mod test {
-    use super::*;
     use std::collections::HashMap;
 
     use rstest::rstest;
 
-    use super::{InCommitTimestampEnablement, TableConfiguration};
+    use super::{InCommitTimestampEnablement, TableConfiguration, *};
     use crate::actions::{Metadata, Protocol, MIN_VALUES};
     use crate::schema::{
         column_name, schema, schema_ref, ColumnName, DataType, SchemaRef, StructField,

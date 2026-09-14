@@ -1,8 +1,8 @@
 //! Integration tests for [`Snapshot`] build semantics.
 
-use buoyant_kernel as delta_kernel;
 use std::sync::Arc;
 
+use buoyant_kernel as delta_kernel;
 use delta_kernel::arrow::array::{ArrayRef, Int32Array};
 use delta_kernel::committer::{Committer, FileSystemCommitter};
 use delta_kernel::schema::{schema, schema_ref};

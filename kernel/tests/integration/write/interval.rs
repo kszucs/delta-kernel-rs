@@ -1,13 +1,12 @@
 //! Integration tests for writing ANSI interval columns.
 
-use buoyant_kernel as delta_kernel;
 use std::sync::Arc;
 
+use buoyant_kernel as delta_kernel;
 use delta_kernel::schema::{schema_ref, DataType};
 use test_utils::load_and_begin_transaction;
 
 mod supported {
-    use super::delta_kernel;
     use std::collections::HashMap;
 
     use delta_kernel::actions::{MAX_VALUES, MIN_VALUES, NULL_COUNT, STATS_PARSED};
@@ -26,7 +25,7 @@ mod supported {
         write_batch_to_table,
     };
 
-    use super::*;
+    use super::{delta_kernel, *};
     use crate::common::read_utils::read_parquet_file;
     use crate::common::write_utils::load_existing_single_file_checkpoint_path;
 

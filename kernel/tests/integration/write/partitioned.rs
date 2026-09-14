@@ -57,7 +57,10 @@ async fn test_write_partitioned_normal_values_roundtrip(
     )
     .await?;
     assert_eq!(
-        snapshot.table_configuration().logical_partition_columns().len(),
+        snapshot
+            .table_configuration()
+            .logical_partition_columns()
+            .len(),
         13 + 2 * cfg!(feature = "nanosecond-timestamps") as usize
     );
 
@@ -528,13 +531,13 @@ fn all_types_schema() -> Arc<StructType> {
     };
     #[cfg(feature = "nanosecond-timestamps")]
     {
-    let nanos_schema = schema_ref! {
-        nullable "p_timestamp_nanos": TIMESTAMP_NANOS,
-        nullable "p_timestamp_nanos_ntz": TIMESTAMP_NANOS_NTZ,
-    };
-    let mut fields = schema.fields().cloned().collect::<Vec<_>>();
-    fields.append(&mut nanos_schema.fields().cloned().collect::<Vec<_>>());
-    return Arc::new(StructType::new_unchecked(fields.into_iter()));
+        let nanos_schema = schema_ref! {
+            nullable "p_timestamp_nanos": TIMESTAMP_NANOS,
+            nullable "p_timestamp_nanos_ntz": TIMESTAMP_NANOS_NTZ,
+        };
+        let mut fields = schema.fields().cloned().collect::<Vec<_>>();
+        fields.append(&mut nanos_schema.fields().cloned().collect::<Vec<_>>());
+        return Arc::new(StructType::new_unchecked(fields.into_iter()));
     }
 
     schema
